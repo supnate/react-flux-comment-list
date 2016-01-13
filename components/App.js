@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import CommentActions from '../actions/CommentActions';
 import CommentStore from '../stores/CommentStore';
-import CommentList from '../components/CommentList';
+import CommentList from './CommentList';
+import CommentForm from './CommentForm';
+import './App.less';
 
 function getAppState() {
   return {
@@ -14,9 +17,7 @@ export default class App extends Component {
     this.onStoreChange = this.onStoreChange.bind(this);
   }
 
-  state = {
-    comments: []
-  }
+  state = getAppState()
 
   componentDidMount() {
     CommentStore.addChangeListener(this.onStoreChange);
@@ -30,11 +31,16 @@ export default class App extends Component {
     this.setState(getAppState());
   }
 
+  onSubmit(args) {
+    CommentActions.create(args.author, args.text);
+  }
+
   render() {
     return (
       <div>
-        <h2>Comments ({this.state.comments.length})</h2>
+        <h2 className="comment-list-header">Comments ({this.state.comments.length})</h2>
         <CommentList comments={this.state.comments} />
+        <CommentForm onSubmit={::this.onSubmit}/>
       </div>
     );
   }

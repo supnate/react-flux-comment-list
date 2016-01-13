@@ -10,8 +10,13 @@ function create(author, text) {
     id: id,
     text: text,
     author: author,
-    likes: 0,
+    date: new Date(),
   };
+}
+
+// create dummy data
+for (let i = 0; i < 2; i++) {
+  create('Nate', 'This is sample comment.');
 }
 
 function destroy(id) {
@@ -24,6 +29,7 @@ const CommentStore = Object.assign({}, EventEmitter.prototype, {
     for (const p in _comments) {
       arr.push(_comments[p]);
     }
+    arr.sort((c1, c2) => c1.date.getTime() - c2.date.getTime());
     return arr;
   },
 
