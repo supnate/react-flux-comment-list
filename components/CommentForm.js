@@ -7,6 +7,7 @@ export default class CommentForm extends Component {
   state = {
     author: '',
     text: '',
+    error: '',
   }
 
   onSubmit(evt) {
