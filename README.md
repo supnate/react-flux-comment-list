@@ -6,3 +6,5 @@ A sample for building a comment list component with React and Flux.
 npm install
 npm start
 ```
+
+Then access: http://localhost:6061/
