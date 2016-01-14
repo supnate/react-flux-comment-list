@@ -28,7 +28,7 @@
     "css-loader": "^0.22.0",
     "events": "^1.1.0",
     "flux": "^2.1.1",
-    "keyMirror": "^0.1.1",
+    "keymirror": "^0.1.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.2",
     "style-loader": "^0.13.0"
